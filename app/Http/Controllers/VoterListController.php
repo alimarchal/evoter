@@ -17,11 +17,11 @@ class VoterListController extends Controller
     public function index()
     {
         $collection = QueryBuilder::for(VoterList::class)
-            ->allowedFilters(['constituency_name', 'moza_daha_city', 'patwar_circle_name',
+            ->allowedFilters(['constituency_name', 'moza_daha_city', 'patwar_circle_name', 'ec_no',
                 'tehsil', 'district', AllowedFilter::exact('constituency_area_number'), 'union_council',
                 AllowedFilter::exact('gender'), 'name', 'father_husband_name', 'cnic', 'occupation', 'age', 'address',
                 'mobile_number', 'polling_station_no', 'potential_voter',])
-            ->get();
+            ->paginate(100);
         return view('voter-list.index', compact('collection'));
     }
 
@@ -102,7 +102,7 @@ class VoterListController extends Controller
             ->groupBy('gender')->select('gender', \DB::raw('count(*) as total'))
             ->orderBy('gender','asc')
             ->get('gender');
-        
+
         return view('voter-list.reportAreaWise', compact('collection'));
     }
 }

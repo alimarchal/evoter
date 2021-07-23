@@ -19,24 +19,24 @@
                 <div class="row" style="direction: rtl; text-align: right">
                     <div class="col-2">
                         <label for="cnic" style="float: right;"> شناختی کارڈ نمبر</label>
-                        <input type="text" class="form-control" value="{{!empty(request()->filter['cnic'])?request()->filter['cnic']:''}}"  id="cnic" name="filter[cnic]" maxlength="15" placeholder="82203-9442865-3">
-{{--                        --}}
+                        <input type="text" class="form-control" value="{{!empty(request()->filter['cnic'])?request()->filter['cnic']:''}}" id="cnic" name="filter[cnic]" maxlength="15" placeholder="82203-9442865-3">
+                        {{--                        --}}
                     </div>
                     <div class="col-3">
                         <label for="name" style="float: right;">نام</label>
-                        <input type="text" class="form-control" id="name" name="filter[name]" value="{{!empty(request()->filter['name'])?request()->filter['name']:''}}" >
+                        <input type="text" class="form-control" id="name" name="filter[name]" value="{{!empty(request()->filter['name'])?request()->filter['name']:''}}">
                     </div>
                     <div class="col-3">
                         <label for="father_husband_name" style="float: right;">ولد/ شوہر کا نام</label>
-                        <input type="text" class="form-control" id="father_husband_name" name="filter[father_husband_name]"  value="{{!empty(request()->filter['father_husband_name'])?request()->filter['father_husband_name']:''}}" >
+                        <input type="text" class="form-control" id="father_husband_name" name="filter[father_husband_name]" value="{{!empty(request()->filter['father_husband_name'])?request()->filter['father_husband_name']:''}}">
                     </div>
                     <div class="col-2">
                         <label for="moza_daha_city" style="float: right;">موضع/دیہہ/شہر</label>
-                        <input type="text" class="form-control" id="moza_daha_city" name="filter[moza_daha_city]" value="{{!empty(request()->filter['moza_daha_city'])?request()->filter['moza_daha_city']:''}}" >
+                        <input type="text" class="form-control" id="moza_daha_city" name="filter[moza_daha_city]" value="{{!empty(request()->filter['moza_daha_city'])?request()->filter['moza_daha_city']:''}}">
                     </div>
                     <div class="col-2">
                         <label for="constituency_area_number" style="float: right;">انتحابی علاقے کا نمبر</label>
-                        <input type="text" class="form-control" id="constituency_area_number" name="filter[constituency_area_number]"  value="{{!empty(request()->filter['constituency_area_number'])?request()->filter['constituency_area_number']:''}}">
+                        <input type="text" class="form-control" id="constituency_area_number" name="filter[constituency_area_number]" value="{{!empty(request()->filter['constituency_area_number'])?request()->filter['constituency_area_number']:''}}">
                     </div>
                     <div class="col-2">
                         <label for="constituency_name" style="float: right;">انتخابی علاقے کا نام</label>
@@ -52,7 +52,7 @@
                         <select class="form-control" id="gender" name="filter[gender]">
                             <option selected value="">انتخاب کریں</option>
                             @foreach(\App\Models\User::gender() as $gender)
-                                <option value="{{$gender}}"  @if(!empty(request()->filter['gender']) && $gender == request()->filter['gender']) selected @endif >{{$gender}}</option>
+                                <option value="{{$gender}}" @if(!empty(request()->filter['gender']) && $gender == request()->filter['gender']) selected @endif >{{$gender}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -120,15 +120,14 @@
                     <table id="example1" class="table table-bordered table-striped text-right" style="direction: rtl;">
                         <thead>
                         <tr>
-                            <th>نمبر</th>
+                            <th>نمبرشمار</th>
+                            <th>سلسلہ نمبر</th>
                             <th>نام</th>
                             <th>ولد/ شوہر</th>
                             <th>شناختی کارڈ نمبر</th>
                             <th>پتہ</th>
                             <th>وارڈ</th>
                             <th>علاقے کا نمبر</th>
-                            <th>علاقے کا نمبر</th>
-                            <th>پیشہ</th>
                             {{--                            <th>موضع/دیہہ/شہر</th>--}}
                             {{--                            <th>پٹوار سرکل</th>--}}
                             {{--                            <th>تحصیل</th>--}}
@@ -140,14 +139,13 @@
                         @foreach($collection as $coll)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
+                                <td>{{$coll->ec_no}}</td>
                                 <td>{{$coll->name}}</td>
                                 <td>{{$coll->father_husband_name}}</td>
                                 <td>{{$coll->cnic}}</td>
                                 <td>{{$coll->address}}</td>
                                 <td>{{$coll->constituency_name}}</td>
                                 <td>{{$coll->constituency_area_number}}</td>
-                                <td>{{$coll->occupation}}</td>
-                                <td>{{$coll->occupation}}</td>
                             </tr>
                         @endforeach
 
