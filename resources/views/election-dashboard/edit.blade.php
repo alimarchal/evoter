@@ -17,25 +17,25 @@
 
             <div class="col-3">
                 <label for="candidate_name">Candidate Name</label>
-                <input type="text" class="form-control" id="candidate_name" value="{{$electionDashboard->candidate_name}}" name="candidate_name">
+                <input type="text" class="form-control" id="candidate_name" value="{{$electionDashboard->candidate_name}}" name="candidate_name" readonly>
             </div>
 
 
             <div class="col-3">
                 <label for="party_name" >Party Name</label>
-                <input type="text" class="form-control" id="party_name"  value="{{$electionDashboard->party_name}}" name="party_name">
+                <input type="text" class="form-control" id="party_name"  value="{{$electionDashboard->party_name}}" name="party_name" readonly>
             </div>
 
 
             <div class="col-3">
-                <label for="obtain_votes" >Obtain Votes</label>
+                <label for="obtain_votes" >Votes Received</label>
                 <input type="number" class="form-control" id="obtain_votes"  value="{{$electionDashboard->obtain_votes}}" min="0" name="obtain_votes">
             </div>
 
 
             <div class="col-3">
                 <label for="party_symbol" >Party Symbol</label>
-                <input type="text" class="form-control" id="party_symbol"  value="{{$electionDashboard->party_symbol}}" name="party_symbol">
+                <input type="text" class="form-control" id="party_symbol"  value="{{$electionDashboard->party_symbol}}" name="party_symbol" readonly>
             </div>
         </div>
 

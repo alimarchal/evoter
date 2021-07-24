@@ -86,6 +86,30 @@
             </div>
         </div>
 
+        @foreach($top_three as $top)
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    {{--                    <h3>{{\App\Models\VoterList::where('gender','عورت')->count()}}</h3>--}}
+                    <h1>{{$top->obtain_votes}}</h1>
+
+                    <p style="font-size: 20px">{{$top->candidate_name}} <br>
+                        {{$top->party_name}}
+                    </p>
+                </div>
+                <div class="icon">
+                    {{--                    <i class="ion ion-pie-graph"></i>--}}
+                    <i class="ion ion-person-add"></i>
+                </div>
+                {{--                <a href="{{route('voterList.index',['filter[gender]'=>'عورت'])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
+            </div>
+        </div>
+            @endforeach
+
+
+
+
     </div>
     <!-- Content Wrapper. Contains page content -->
 

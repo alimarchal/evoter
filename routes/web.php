@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $constituency_name = \App\Models\VoterList::select('constituency_name')->groupBy('constituency_name')->get();
-    return view('AdminLTE.dashboard', compact('constituency_name'));
+    $top_three = \App\Models\ElectionDashboard::orderBy('obtain_votes', 'desc')->take(3)->get();
+    return view('AdminLTE.dashboard', compact('constituency_name','top_three'));
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum'])->get('voterList/reportAreaWise', [\App\Http\Controllers\VoterListController::class, 'reportAreaWise'])->name('voterList.reportAreaWise');
