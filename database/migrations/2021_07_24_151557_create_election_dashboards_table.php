@@ -15,9 +15,14 @@ class CreateElectionDashboardsTable extends Migration
     {
         Schema::create('election_dashboards', function (Blueprint $table) {
             $table->id();
-            $table->string('candidate_name');
-            $table->string('party_name');
-            $table->string('obtain_votes');
+            $table->string('polling_station_no')->nullable();
+            $table->string('type')->nullable();
+            $table->string('polling_station_name')->nullable();
+            $table->string('area')->nullable();
+            $table->integer('khawaja_farooq')->nullable();
+            $table->integer('iftikhar_gillani')->nullable();
+            $table->integer('mubarak_haider')->nullable();
+            $table->integer('mukhtar_khan')->nullable();
             $table->timestamps();
         });
     }

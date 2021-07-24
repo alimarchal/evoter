@@ -14,7 +14,7 @@ class ElectionDashboardController extends Controller
      */
     public function index()
     {
-        $collection = ElectionDashboard::orderBy('obtain_votes', 'DESC')->get();
+        $collection = ElectionDashboard::all();
         return view('election-dashboard.index',compact('collection'));
     }
 
@@ -25,7 +25,7 @@ class ElectionDashboardController extends Controller
      */
     public function create()
     {
-//        return view('election-dashboard.create');
+        return view('election-dashboard.create');
     }
 
     /**
@@ -36,7 +36,9 @@ class ElectionDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ElectionDashboard::create($request->all());
+        session()->flash('message', 'Record successfully saved...');
+        return redirect()->route('electionDashboard.index');
     }
 
     /**
@@ -71,6 +73,7 @@ class ElectionDashboardController extends Controller
     public function update(Request $request, ElectionDashboard $electionDashboard)
     {
         $electionDashboard->update($request->all());
+        session()->flash('message', 'Record successfully saved...');
         return redirect()->route('electionDashboard.index');
     }
 

@@ -22,26 +22,38 @@
 
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="" class="table table-bordered table-striped">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>Sr. No</th>
-                            <th>Candidate Name</th>
-                            <th>Party Name</th>
-                            <th>Obtain Votes</th>
-                            <th>Party Symbol</th>
+                            <th>#</th>
+                            <th>PS No</th>
+                            <th>PSName</th>
+                            <th>Kh. Farooq Ahmed</th>
+                            <th>Syed Iftikhar Gillani</th>
+                            <th>Sardar Mubarak Haider</th>
+                            <th>Sardar Mukhtar Khan</th>
+                            <th>Type</th>
+                            <th>Area</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($collection as $coll)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>
-                                    <a href="{{route('electionDashboard.edit',$coll->id)}}">{{$coll->candidate_name}}</a>
-                                </td>
-                                <td>{{$coll->party_name}}</td>
-                                <td>{{$coll->obtain_votes}}</td>
-                                <td>{{$coll->party_symbol}}</td>
+                                <td><a href="{{route('electionDashboard.edit',$coll->id)}}">{{$loop->iteration}}</a></td>
+                                <td>{{$coll->polling_station_no}}</td>
+                                <td>{{$coll->polling_station_name}}</td>
+                                <td><a href="{{route('electionDashboard.edit',$coll->id)}}">{{$coll->khawaja_farooq}}</a></td>
+                                <td>{{$coll->iftikhar_gillani}}</td>
+                                <td>{{$coll->mubarak_haider}}</td>
+                                <td>{{$coll->mukhtar_khan}}</td>
+                                <td>{{$coll->type}}</td>
+                                <td>{{$coll->area}}</td>
+{{--                                <td>--}}
+{{--                                    <a href="{{route('electionDashboard.edit',$coll->id)}}">{{$coll->candidate_name}}</a>--}}
+{{--                                </td>--}}
+{{--                                <td>{{$coll->party_name}}</td>--}}
+{{--                                <td>{{$coll->obtain_votes}}</td>--}}
+{{--                                <td>{{$coll->party_symbol}}</td>--}}
                             </tr>
                         @endforeach
 
@@ -71,11 +83,12 @@
     <script>
         $(function () {
             $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "responsive": true, "lengthChange": false, "autoWidth": false,"pageLength": 50,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": false,
+                "pageLength": 50,
                 "lengthChange": false,
                 "searching": false,
                 "ordering": true,

@@ -10,9 +10,13 @@ class ElectionDashboard extends Model
     use HasFactory;
 
     protected $fillable = [
-        'candidate_name',
-        'party_name',
-        'obtain_votes',
-        'party_symbol',
+        'polling_station_no',
+        'type',
+        'polling_station_name',
+        'area',
+        'khawaja_farooq',
+        'iftikhar_gillani',
+        'mubarak_haider',
+        'mukhtar_khan',
     ];
 }

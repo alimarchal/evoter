@@ -55,14 +55,30 @@
         </li>
 
 
-        <li class="nav-item {{ request()->routeIs('electionDashboard.index')?'menu-open':''}}">
-            <a href="{{route('electionDashboard.index')}}" class="nav-link">
-                <i class="nav-icon fas fa-pager"></i>
+        <li class="nav-item {{ request()->routeIs('electionDashboard.create')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-vote-yea"></i>
                 <p>
                     Election Dashboard
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('electionDashboard.create')}}" class="nav-link {{ request()->routeIs('voterList.create')?'active':''}}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Create Record</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('electionDashboard.index')}}" class="nav-link {{ request()->routeIs('voterList.index')?'active':''}}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View & Search</p>
+                    </a>
+                </li>
+            </ul>
         </li>
+
     </ul>
 </nav>
