@@ -54,5 +54,15 @@
             </ul>
         </li>
 
+
+        <li class="nav-item {{ request()->routeIs('electionDashboard.index')?'menu-open':''}}">
+            <a href="{{route('electionDashboard.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-pager"></i>
+                <p>
+                    Election Dashboard
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+        </li>
     </ul>
 </nav>

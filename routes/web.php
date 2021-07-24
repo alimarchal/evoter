@@ -24,3 +24,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum'])->get('voterList/reportAreaWise', [\App\Http\Controllers\VoterListController::class, 'reportAreaWise'])->name('voterList.reportAreaWise');
 Route::middleware(['auth:sanctum'])->resource('voterList', \App\Http\Controllers\VoterListController::class);
+Route::middleware(['auth:sanctum'])->resource('electionDashboard', \App\Http\Controllers\ElectionDashboardController::class);
